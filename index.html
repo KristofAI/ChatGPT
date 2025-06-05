@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Consulting - E-book Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .branding {
+            background-color: #0069b4; /* approximate main color */
+            padding: 1rem;
+            color: #fff;
+        }
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #0069b4;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00518b;
+        }
+        #thanks {
+            display: none;
+            background: #d9edf7;
+            border: 1px solid #bce8f1;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="branding">
+        <h1>United Consulting</h1>
+    </div>
+    <div class="container">
+        <form id="ebookForm">
+            <div class="form-group">
+                <label for="name">Naam*</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mailadres*</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="tel">Telefoonnummer (optioneel)</label>
+                <input type="tel" id="tel" name="tel">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="contact" name="contact">
+                    Neem contact op om te sparren rond HR tech
+                </label>
+            </div>
+            <button type="submit">Download e-book</button>
+        </form>
+        <div id="thanks">
+            Bedankt voor het invullen van het formulier! Je kunt het e-book <a href="ebook.pdf" download>hier downloaden</a>.
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('ebookForm');
+        const thanks = document.getElementById('thanks');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            form.style.display = 'none';
+            thanks.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
